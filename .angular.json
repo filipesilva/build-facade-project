@@ -1,0 +1,65 @@
+{
+  "workspaceName": "build-facade-project",
+  "projects": {
+    "main-app": {
+      "_projectType": "application",
+      "default": true,
+      "root": "src",
+      "targets": {
+        "default": {
+          "_targetType": "browser",
+          "tsConfigPath": "./tsconfig.app.json",
+          "entryPoints": {
+            "main": "main.ts"
+          }
+        },
+        "lint-app": {
+          "_targetType": "lint",
+          "tsConfigPath": "tsconfig.app.json"
+        },
+        "tests": {
+          "_targetType": "unittests",
+          "tsConfigPath": "./tsconfig.spec.json",
+          "karmaConfig": "karma.conf.js"
+        },
+        "lint-tests": {
+          "_targetType": "lint",
+          "tsConfigPath": "tsconfig.spec.json"
+        }
+      },
+      "configurations": {
+        "default": {
+          "_configurationType": "debug",
+          "outDir": "dist",
+          "assets": [
+            "assets",
+            "favicon.ico"
+          ],
+          "index": "index.html",
+          "polyfills": "polyfills.ts",
+          "prefix": "app",
+          "styles": [
+            "styles.css"
+          ],
+          "scripts": []
+        }
+      }
+    },
+    "main-app-e2e": {
+      "projectType": "e2e",
+      "root": "./e2e",
+      "targetApplication": "main-app#default",
+      "targets": {
+        "default": {
+          "_targetType": "e2e",
+          "tsConfigPath": "tsconfig.e2e.json",
+          "protractorConfigPath": "protractor.conf.js"
+        },
+        "lint": {
+          "_targetType": "lint",
+          "tsConfigPath": "tsconfig.e2e.json"
+        }
+      }
+    }
+  }
+}
